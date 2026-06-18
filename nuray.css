@@ -1,0 +1,148 @@
+/* Общие сбросы стилей и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fcfbf7; /* Мягкий кремовый фон */
+    color: #2c2c2c;
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+/* Шапка сайта */
+.restaurant-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.restaurant-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.restaurant-header .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #7c7c7c;
+    font-size: 1.2rem;
+}
+
+.divider {
+    width: 80px;
+    height: 2px;
+    background-color: #bfa15f; /* Элегантный золотистый цвет */
+    margin: 20px auto 0;
+}
+
+/* Главный контейнер */
+.menu-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Секции категорий */
+.menu-section {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1a1a1a;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Сетка для карточек блюд (2 колонки на больших экранах) */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+}
+
+/* Карточка позиции меню */
+.menu-item {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(191, 161, 95, 0.15); /* Золотистое свечение при наведении */
+}
+
+/* Название и цена */
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+.item-title {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #1a1a1a;
+    padding-right: 15px;
+}
+
+.item-price {
+    font-weight: 700;
+    color: #bfa15f;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+/* Описание блюда */
+.item-description {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Подвал (Контакты) */
+.restaurant-footer {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    color: #7c7c7c;
+    font-size: 0.9rem;
+}
+
+.restaurant-footer p {
+    margin-bottom: 8px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* На телефонах всё встает в одну колонку */
+        gap: 20px;
+    }
+    
+    .restaurant-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .item-price {
+        margin-top: 5px;
+    }
+}
