@@ -3,91 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Меню Ресторана | Gastro Bistro</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <title>Gourmet Bistro — Меню</title>
+    <style>
+        /* Общие стили и обнуление */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcfbfa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Шапка сайта (Хедер) */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #f4c430;
+        }
+
+        /* Навигация по категориям */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e67e22;
+        }
+
+        /* Основной контейнер меню */
+        .menu-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .menu-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 80px; /* Чтобы при переходе по ссылке заголовок не прятался под навигатором */
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Сетка для карточек блюд */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Карточка блюда */
+        .menu-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .item-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            padding: 20px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .item-price {
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+
+        .item-description {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Подвал (Футер) */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            nav ul { gap: 10px; }
+            nav a { font-size: 0.9rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="restaurant-header">
-        <h1>Gastro Bistro</h1>
-        <p class="subtitle">Изысканный вкус в каждой детали</p>
-        <div class="divider"></div>
+    <header>
+        <h1>Gourmet Bistro</h1>
+        <p>Изысканные блюда с доставкой и в ресторане</p>
     </header>
 
+    <nav>
+        <ul>
+            <li><a href="#starters">Закуски</a></li>
+            <li><a href="#mains">Горячее</a></li>
+            <li><a href="#desserts">Десерты</a></li>
+        </ul>
+    </nav>
+
     <main class="menu-container">
-        
-        <section class="menu-section">
+
+        <section id="starters" class="menu-section">
             <h2 class="section-title">Закуски</h2>
-            
             <div class="menu-grid">
+                
                 <div class="menu-item">
-                    <div class="item-header">
-                        <h3 class="item-title">Брускетта с томатами и базиликом</h3>
-                        <span class="item-price">450 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1572656631137-7935297eff55?auto=format&fit=crop&w=500&q=80" alt="Брускетта" class="item-image">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <span class="item-title">Итальянская Брускетта</span>
+                            <span class="item-price">450 ₽</span>
+                        </div>
+                        <p class="item-description">Хрустящий багет, спелые томаты, базилик, чеснок и оливковое масло первого отжима.</p>
                     </div>
-                    <p class="item-description">Хрустящий багет, спелые томаты, чеснок, оливковое масло, свежий базилик.</p>
                 </div>
 
                 <div class="menu-item">
-                    <div class="item-header">
-                        <h3 class="item-title">Сырное плато</h3>
-                        <span class="item-price">890 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Салат Цезарь" class="item-image">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <span class="item-title">Салат Цезарь</span>
+                            <span class="item-price">590 ₽</span>
+                        </div>
+                        <p class="item-description">Листья салата Романо, сочное куриное филе на гриле, пармезан, гренки и фирменный соус.</p>
                     </div>
-                    <p class="item-description">Пармезан, горгонзола, бри, камамбер. Подается с медом, орехами и виноградом.</p>
                 </div>
+
             </div>
         </section>
 
-        <section class="menu-section">
+        <section id="mains" class="menu-section">
             <h2 class="section-title">Горячие блюда</h2>
-            
             <div class="menu-grid">
+
                 <div class="menu-item">
-                    <div class="item-header">
-                        <h3 class="item-title">Стейк Рибай</h3>
-                        <span class="item-price">1800 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&w=500&q=80" alt="Стейк Рибай" class="item-image">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <span class="item-title">Стейк Рибай</span>
+                            <span class="item-price">1850 ₽</span>
+                        </div>
+                        <p class="item-description">Премиальная говядина зернового откорма, обжаренная на гриле с веточкой розмарина.</p>
                     </div>
-                    <p class="item-description">Сочный стейк из мраморной говядины. Подается с соусом на выбор и веточкой розмарина.</p>
                 </div>
 
                 <div class="menu-item">
-                    <div class="item-header">
-                        <h3 class="item-title">Паста Карбонара</h3>
-                        <span class="item-price">650 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Пицца" class="item-image">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <span class="item-title">Пицца Маргарита</span>
+                            <span class="item-price">620 ₽</span>
+                        </div>
+                        <p class="item-description">Традиционное тонкое тесто, томатный соус, нежная моцарелла и свежий базилик.</p>
                     </div>
-                    <p class="item-description">Классическая итальянская паста с гуанчиале, яичным желтком и сыром пекорино романо.</p>
                 </div>
+
             </div>
         </section>
 
-        <section class="menu-section">
+        <section id="desserts" class="menu-section">
             <h2 class="section-title">Десерты</h2>
-            
             <div class="menu-grid">
+
                 <div class="menu-item">
-                    <div class="item-header">
-                        <h3 class="item-title">Домашний Тирамису</h3>
-                        <span class="item-price">420 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=500&q=80" alt="Шоколадный фондан" class="item-image">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <span class="item-title">Шоколадный Фондан</span>
+                            <span class="item-price">390 ₽</span>
+                        </div>
+                        <p class="item-description">Горячий шоколадный кекс с жидкой сердцевиной, подается с шариком ванильного мороженого.</p>
                     </div>
-                    <p class="item-description">Нежный крем из маскарпоне, печенье савоярди, пропитанное крепким кофе и ликером.</p>
                 </div>
 
                 <div class="menu-item">
-                    <div class="item-header">
-                        <h3 class="item-title">Шоколадный Фондан</h3>
-                        <span class="item-price">390 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" alt="Чизкейк" class="item-image">
+                    <div class="item-info">
+                        <div class="item-header">
+                            <span class="item-title">Нью-Йорк Чизкейк</span>
+                            <span class="item-price">420 ₽</span>
+                        </div>
+                        <p class="item-description">Классический творожный десерт на песочной основе со свежими ягодами.</p>
                     </div>
-                    <p class="item-description">Кекс с жидкой шоколадной начинкой. Подается с шариком ванильного мороженого.</p>
                 </div>
+
             </div>
         </section>
 
     </main>
 
-    <footer class="restaurant-footer">
-        <p>Ждем вас каждый день с 10:00 до 23:00</p>
-        <p>Адрес: ул. Вкусная, д. 15 | Телефон: +7 (999) 123-45-67</p>
+    <footer>
+        <p>&copy; 2026 Gourmet Bistro. Все права защищены. | Ул. Вкусная, д. 10</p>
     </footer>
 
 </body>
